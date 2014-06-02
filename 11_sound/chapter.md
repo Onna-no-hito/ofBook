@@ -8,17 +8,17 @@ Here's a quick overview of the classes you can use to work with sound in openFra
 
 `ofSoundStream` gives you access to the computer's sound hardware, allowing you to generate your own sound as well as react to sound coming into your computer from something like a microphone or line-in jack.
 
-As of this writing, these classes are slated to be introduced in the next minor OF version (0.9.0):
+As of this writing, the following classes are slated to be introduced in the next minor version of openFrameworks (0.9.0):
 
-`ofSoundBuffer` is used to store a sequence of `float` values, and perform audio-related things on said values (like resampling)
+`ofSoundBuffer` is used to store a sequence of `float` values, and perform audio-related things on those values (like resampling).
 
 `ofSoundFile` allows you to extract uncompressed ofSoundBuffers from files.
 
-`ofSoundObject` is an interface for chaining bits of sound code together, similar to how a guitarist might use guitar pedals. This is mostly relevant for addon authors or people looking to share their audio processing code.
+`ofSoundObject` is an interface for chaining bits of sound code together, similar to how a guitarist might use guitar pedals. This is mostly relevant for coders using addon or people looking to share their audio processing code.
 
 ## Getting Started With Sound Files
 
-Playing a sound file is only a couple lines of code in openFrameworks. Just point an `ofSoundPlayer` at a file stored in your app's data folder and tell it to play.
+Playing a sound file only needs a couple of lines of code in openFrameworks. Just point ofSoundPlayer at a file stored in your app's data folder and tell it to play.
 
     class ofApp : public ofBaseApp {
       ...
@@ -30,15 +30,15 @@ Playing a sound file is only a couple lines of code in openFrameworks. Just poin
       soundPlayer.play();
     }
 
-This is fine for adding some background music or ambiance to your app, but ofSoundPlayer comes with a few extra features that are particularly handy for handling sound effects.
+This is fine for adding some background music or ambiance to your app, but 'ofSoundPlayer' comes with a few extra features that are particularly handy for handling sound effects.
 
-"Multiplay" allows you to have a file playing several times simultaneously. This is great for any sound effect which might end up getting triggered rapidly, so you don't get stuck with an unnatural cutoff as the player's playhead abruptly jumps back to the beginning of the file. Multiplay isn't on by default. Use `soundPlayer.setMultiPlay(true)` to enable it. Then you can get natural sound effect behaviour with dead-simple trigger logic like this:
+"Multiplay" allows you to have a file playing several times, simultaneously. This is great for any sound effect which might end up getting triggered rapidly, so you don't get stuck with an unnatural cutoff as the player's playhead abruptly jumps back to the beginning of the file. Remember though, Multiplay isn't on by default. Use `soundPlayer.setMultiPlay(true)` to enable it. Then you can get natural sound effect behaviour with dead-simple trigger logic like this:
 
     if ( thingHappened )
       soundPlayer.play();
     }
 
-Another feature built-in to ofSoundPlayer is speed control. If you set the speed faster than normal, the sound's pitch will rise accordingly, and vice-versa (just like a vinyl record). Playback speed is defined relative to "1", so "0.5" is half speed and "2" is double speed.
+Another feature built-in to 'ofSoundPlayer' is speed control. If you set the speed faster than normal, the sound's pitch will rise accordingly, and vice-versa (just like a vinyl record). Playback speed is defined relative to 1, so 0.5 is half speed and 2 is double speed.
 
 Speed control and multiplay are made for each other. Making use of both simultaneously can really extend the life of a single sound effect file. Every time you change a sound player's playback speed with multiplay enabled, previously triggered sound effects continue on unaffected. So, by extending the above trigger logic to something like...
 
@@ -49,9 +49,9 @@ Speed control and multiplay are made for each other. Making use of both simultan
 
 ...you'll introduce a bit of unique character to each instance of the sound.
 
-One other big feature of ofSoundPlayer is easy spectrum access. On the desktop platforms, you can make use of ofSoundGetSpectrum() to get the *frequency domain* representation of the sound coming from all of the currently active ofSoundPlayers in your app. An explanation of the frequency domain is coming a little later in this chapter, but running the openFrameworks *soundPlayerFFTExample* will give you the gist.
+One other big feature of 'ofSoundPlayer' is easy spectrum access. On the desktop platforms, you can make use of 'ofSoundGetSpectrum()' to get the *frequency domain* representation of the sound coming from all of the currently active ofSoundPlayers in your app. An explanation of the frequency domain is coming a little later in this chapter, but running the openFrameworks *soundPlayerFFTExample* will give you the gist.
 
-Ultimately, ofSoundPlayer is a tradeoff between ease-of-use and control. You get access to multiplay and pitch-shifted playback but you don't get extremely precise control or access to the individual samples in the sound file. For this level of control, ofSoundStream is the tool for the job.
+Ultimately, 'ofSoundPlayer' is a tradeoff between ease-of-use and control. You get access to multiplay and pitch-shifted playback but you don't get extremely precise control or access to the individual samples in the sound file. For this level of control, 'ofSoundStream' is the tool for the job.
 
 ## Getting Started With the Sound Stream
 
