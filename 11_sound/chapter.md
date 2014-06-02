@@ -1,8 +1,8 @@
 # Sound
 
-This chapter will demonstrate how to use the sound features that you'll find in openFrameworks, as well as some techniques you can use to generate and process sound.
+This chapter demonstrates how to use the sound features that you'll find in openFrameworks, as well as some techniques you can use to generate and process sound.
 
-Here's a quick overview of the classes you can use to work with sound in openFrameworks:
+Below is a quick overview of the classes you can use to work with sound in openFrameworks.
 
 `ofSoundPlayer` provides simple access to sound files, allowing you to easily load and play sounds, add sound effects to an app and extract some data about the file's sound as it's playing.
 
